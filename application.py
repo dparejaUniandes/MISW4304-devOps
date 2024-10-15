@@ -30,7 +30,6 @@ def endpoints(app):
 
 app = create_flask_app()
 db.init_app(app)
-db.drop_all()
 db.create_all()
 
 if __name__ == '__main__':

@@ -8,4 +8,4 @@ ENV DB_PASSWORD=postgres
 ENV DB_HOST=host.docker.internal
 ENV DB_PORT=5432
 ENV DB_NAME=postgres
-CMD ["python", "app.py"]
+CMD ["python", "application.py"]
