@@ -12,3 +12,5 @@ pytest-flask
 coverage
 pytest-cov
 requests
+MarkupSafe==1.1.1
+Werkzeug==0.16.0
