@@ -28,9 +28,9 @@ def endpoints(app):
     api.add_resource(BlacklistView, '/blacklists/<string:email>') 
 
 
-app = create_flask_app()
-db.init_app(app)
+application = create_flask_app()
+db.init_app(application)
 db.create_all()
 
 if __name__ == '__main__':
-    app.run(debug=True,host='0.0.0.0', port=3000)
+    application.run(debug=True,host='0.0.0.0', port=3000)
