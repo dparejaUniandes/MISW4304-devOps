@@ -3,6 +3,8 @@ Ciclo 7 de la maestría en ingeniería de software asignatura DevOps
 
 # Entrega 1
 
+La aplicación ha sido desarrollado en python y Flask, para su ejecución, recomendamos confirigurar y activar un ambiente virtual de python, luego instalar las dependencias con el comando `pip install --no-cache-dir -r requirements.txt`. Vale la pena mencionar que existe un archivo Dockerfile en la raíz del proyecto, este carga la configuración y hace uso de variables de entorno para la conexión a la base de datos postgresql que está localmente, si no se desea ejecutar la aplicación con Docker, desde la raíz del proyecto bastaría ejecutar `python application.py`, de esta menera se tomaría por defecto SQLite y la aplicación funcionaría sin problemas. Cabe aclarar que en AWS Beanstalk no se ejecutó la aplicación contenerizada, en su lugar, se cargó un archivo comprimido para ejecutar la aplicación.
+
 ## Descripción de Endpoints
 
 ## Uso
@@ -134,7 +136,8 @@ En la raíz del proyecto existe el archivo `Ciclo_7_DevOps.postman_collection.js
 
 ### Variables de la colección en postman
 Para la correcta ejecución de los escenarios de prueba en postman, se han definido las variables EMAIL, APP_UUID, BLOCKED_REASON, TOKEN, GET_EMAIL, la variable HOST es la URL base para realizar las peticiones, en local se puede reemplazar por `http://localhost:5000`, en este momento se encuentra configurado con el dominio de AWS Beanstalk en donde se ejecutó la aplicación: `proyecto-entrega-1-env.eba-pzar3z2n.us-east-1.elasticbeanstalk.com`
- 
+
+<img width="1044" alt="image" src="https://github.com/user-attachments/assets/1d512eaa-d19d-4ec2-aff8-72ca260ddca3">
 
 ### Ejecución de los tests de postman
 Para la ejecución de los tests en postman, se deben realizar los siguientes pasos:
