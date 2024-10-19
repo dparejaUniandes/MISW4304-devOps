@@ -3,6 +3,8 @@ Ciclo 7 de la maestría en ingeniería de software asignatura DevOps
 
 # Entrega 1
 
+La aplicación ha sido desarrollado en python y Flask, para su ejecución, recomendamos confirigurar y activar un ambiente virtual de python, luego instalar las dependencias con el comando `pip install --no-cache-dir -r requirements.txt`. Vale la pena mencionar que existe un archivo Dockerfile en la raíz del proyecto, este carga la configuración y hace uso de variables de entorno para la conexión a la base de datos postgresql que está localmente, si no se desea ejecutar la aplicación con Docker, desde la raíz del proyecto bastaría ejecutar `python application.py`, de esta menera se tomaría por defecto SQLite y la aplicación funcionaría sin problemas. Cabe aclarar que en AWS Beanstalk no se ejecutó la aplicación contenerizada, en su lugar, se cargó un archivo comprimido para ejecutar la aplicación.
+
 ## Descripción de Endpoints
 
 ## Uso
