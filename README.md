@@ -132,6 +132,10 @@ En la raíz del proyecto existe el archivo `Ciclo_7_DevOps.postman_collection.js
 <img width="328" alt="image" src="https://github.com/user-attachments/assets/7cfb1af0-5f5e-4e83-b96a-e385e0649bcc">
 <br>
 
+### Variables de la colección en postman
+Para la correcta ejecución de los escenarios de prueba en postman, se han definido las variables EMAIL, APP_UUID, BLOCKED_REASON, TOKEN, GET_EMAIL, la variable HOST es la URL base para realizar las peticiones, en local se puede reemplazar por `http://localhost:5000`, en este momento se encuentra configurado con el dominio de AWS Beanstalk en donde se ejecutó la aplicación: `proyecto-entrega-1-env.eba-pzar3z2n.us-east-1.elasticbeanstalk.com`
+ 
+
 ### Ejecución de los tests de postman
 Para la ejecución de los tests en postman, se deben realizar los siguientes pasos:
 1. En la carpeta Tests, oprimir en los tres puntos y seleccionar la opción "Run folder"

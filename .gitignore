@@ -166,3 +166,5 @@ dev.env
 ejecucion_comandos_trueNative.txt
 
 .pre-commit-config.yaml
+
+.DS_Store

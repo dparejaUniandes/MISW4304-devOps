@@ -76,12 +76,11 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3000/blacklists",
+									"raw": "http://{{HOST}}/blacklists",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{HOST}}"
 									],
-									"port": "3000",
 									"path": [
 										"blacklists"
 									]
@@ -145,12 +144,11 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3000/blacklists",
+									"raw": "http://{{HOST}}/blacklists",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{HOST}}"
 									],
-									"port": "3000",
 									"path": [
 										"blacklists"
 									]
@@ -215,12 +213,11 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3000/blacklists",
+									"raw": "http://{{HOST}}/blacklists",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{HOST}}"
 									],
-									"port": "3000",
 									"path": [
 										"blacklists"
 									]
@@ -282,12 +279,11 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3000/blacklists",
+									"raw": "http://{{HOST}}/blacklists",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{HOST}}"
 									],
-									"port": "3000",
 									"path": [
 										"blacklists"
 									]
@@ -359,12 +355,11 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3000/blacklists",
+									"raw": "http://{{HOST}}/blacklists",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{HOST}}"
 									],
-									"port": "3000",
 									"path": [
 										"blacklists"
 									]
@@ -434,12 +429,11 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3000/blacklists",
+									"raw": "http://{{HOST}}/blacklists",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{HOST}}"
 									],
-									"port": "3000",
 									"path": [
 										"blacklists"
 									]
@@ -506,12 +500,11 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3000/blacklists",
+									"raw": "http://{{HOST}}/blacklists",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{HOST}}"
 									],
-									"port": "3000",
 									"path": [
 										"blacklists"
 									]
@@ -571,12 +564,11 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:3000/blacklists/{{EMAIL}}",
+									"raw": "http://{{HOST}}/blacklists/{{EMAIL}}",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{HOST}}"
 									],
-									"port": "3000",
 									"path": [
 										"blacklists",
 										"{{EMAIL}}"
@@ -637,12 +629,11 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:3000/blacklists/{{EMAIL}}bad",
+									"raw": "http://{{HOST}}/blacklists/{{EMAIL}}bad",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{HOST}}"
 									],
-									"port": "3000",
 									"path": [
 										"blacklists",
 										"{{EMAIL}}bad"
@@ -687,12 +678,11 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:3000/blacklists/{{EMAIL}}",
+									"raw": "http://{{HOST}}/blacklists/{{EMAIL}}",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{HOST}}"
 									],
-									"port": "3000",
 									"path": [
 										"blacklists",
 										"{{EMAIL}}"
@@ -747,12 +737,11 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:3000/blacklists/{{EMAIL}}bad",
+									"raw": "http://{{HOST}}/blacklists/{{EMAIL}}bad",
 									"protocol": "http",
 									"host": [
-										"localhost"
+										"{{HOST}}"
 									],
-									"port": "3000",
 									"path": [
 										"blacklists",
 										"{{EMAIL}}bad"
@@ -780,7 +769,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"someemail@gmail.com\",\n    \"app_uuid\": \"286c11f4-d602-46ac-8c73-fba370da033b\",\n    \"blocked_reason\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\"\n}",
+							"raw": "{\n    \"email\": \"someemail3@gmail.com\",\n    \"app_uuid\": \"286c11f4-d602-46ac-8c73-fba370da0333\",\n    \"blocked_reason\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -788,12 +777,11 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/blacklists",
+							"raw": "http://{{HOST}}/blacklists",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{HOST}}"
 							],
-							"port": "3000",
 							"path": [
 								"blacklists"
 							]
@@ -817,15 +805,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/blacklists/someemail@gmail.com",
+							"raw": "http://{{HOST}}/blacklists/someemail3@gmail.com",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{HOST}}"
 							],
-							"port": "3000",
 							"path": [
 								"blacklists",
-								"someemail@gmail.com"
+								"someemail3@gmail.com"
 							]
 						}
 					},
@@ -877,6 +864,11 @@
 		{
 			"key": "GET_EMAIL",
 			"value": ""
+		},
+		{
+			"key": "HOST",
+			"value": "",
+			"type": "string"
 		}
 	]
 }
