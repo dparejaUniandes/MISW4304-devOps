@@ -121,3 +121,24 @@ Permite saber si un email está en la lista negra global de la organización o n
 </td>
 </tr>
 </table>
+
+# Documentación Postman
+
+En la raíz del proyecto existe el archivo `Ciclo_7_DevOps.postman_collection.json` el cual es una colección de postman, en ella se encuentra la carpeta **Entrega 1**, esta carpeta contiene una carpeta de **Tests** la cual se puede ejecutar para probar todas las respuestas que la aplicación puede brindar, además, posee dos peticiones, una de tipo Post para agregar un email a la lista negra de la organización y otra de tipo Get para consultar si un email está presente en la lista negra. A continuación, se muestra como se ve la estructura mencionada anteriormente desde el postman:
+
+Imagen
+
+## Ejecución de los tests de postman
+Para la ejecución de los tests en postman, se deben realizar los siguientes pasos:
+1. En la carpeta Tests, oprimir en los tres puntos y seleccionar la opción "Run folder"
+2. Una vez seleccionada esta opción, se listarán todas las peticiones encargadas de ejecutar los tests, debemos fijarnos que todos los checkbox estén seleccionados
+3. Oprimir la opción "Run Ciclo 7 DevOps", Ciclo 7 DevOps es el nombre de la colección, si la colección ha cambiado de nombre, posiblemente la opción aparezca "Run nombre_colección"
+
+
+Imagen
+
+
+4. Al ejecutar todos los tests, se debe validar que se ejecutaron 26 tests, fallaron cero y se omitieron cero como se puede ver a continuación.
+
+
+Imagen
