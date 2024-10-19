@@ -6,7 +6,7 @@ Ciclo 7 de la maestría en ingeniería de software asignatura DevOps
 ## Uso
 A continuación se especifica cada endpoint con lo necesario para realizar las peticiones http que permitan agregar un correo a la lista negra y consultar si un correo está en la lista negra y la razón por la cual el correo se agregó a la lista negra: <br>
 
-### Agregar corre a la lista negra
+### Agregar correo a la lista negra
 
 <table>
 <tr>
