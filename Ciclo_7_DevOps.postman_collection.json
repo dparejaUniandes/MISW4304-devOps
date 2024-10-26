@@ -1,0 +1,874 @@
+{
+	"info": {
+		"_postman_id": "bf25213f-2b7b-416d-bc6b-899b53214d08",
+		"name": "Ciclo 7 DevOps",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15124328"
+	},
+	"item": [
+		{
+			"name": "Entrega 1",
+			"item": [
+				{
+					"name": "Tests",
+					"item": [
+						{
+							"name": "create item success",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var uuid = require('uuid');",
+											"var myUUID = uuid.v4();",
+											"",
+											"const email = pm.variables.replaceIn(\"{{$randomEmail}}\").toLowerCase();",
+											"const app_uuid = myUUID;",
+											"const blocked_reason = \"Some fake reason to add the email to blacklist\";",
+											"",
+											"pm.collectionVariables.set('EMAIL', email);",
+											"pm.collectionVariables.set('APP_UUID', app_uuid);",
+											"pm.collectionVariables.set('BLOCKED_REASON', blocked_reason);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Status should be 201\", function () {",
+											"    pm.expect(pm.response.code).to.eql(201);",
+											"});",
+											"pm.test(\"Response has message\", function () {",
+											"    pm.expect(jsonData.message).to.not.eql(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"{{EMAIL}}\",\n    \"app_uuid\": \"{{APP_UUID}}\",\n    \"blocked_reason\": \"{{BLOCKED_REASON}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HOST}}/blacklists",
+									"protocol": "http",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"blacklists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create item with email that already exists",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const blocked_reason = \"Some fake reason to add the email to blacklist\";",
+											"",
+											"pm.collectionVariables.set('BLOCKED_REASON', blocked_reason);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Status should be 412\", function () {",
+											"    pm.expect(pm.response.code).to.eql(412);",
+											"});",
+											"pm.test(\"Response has message\", function () {",
+											"    pm.expect(jsonData.message).to.not.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"{{EMAIL}}\",\n    \"app_uuid\": \"{{APP_UUID}}\",\n    \"blocked_reason\": \"{{BLOCKED_REASON}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HOST}}/blacklists",
+									"protocol": "http",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"blacklists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create item with app_uuid already exists",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const blocked_reason = \"Some fake reason to add the email to blacklist\";",
+											"",
+											"pm.collectionVariables.set('BLOCKED_REASON', blocked_reason);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Status should be 412\", function () {",
+											"    pm.expect(pm.response.code).to.eql(412);",
+											"});",
+											"pm.test(\"Response has message\", function () {",
+											"    pm.expect(jsonData.message).to.not.eql(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"{{EMAIL}}\",\n    \"app_uuid\": \"{{APP_UUID}}\",\n    \"blocked_reason\": \"{{BLOCKED_REASON}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HOST}}/blacklists",
+									"protocol": "http",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"blacklists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create item without token",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var uuid = require('uuid');",
+											"var myUUID = uuid.v4();",
+											"",
+											"const app_uuid = myUUID;",
+											"const blocked_reason = \"Some fake reason to add the email to blacklist\";",
+											"",
+											"pm.collectionVariables.set('APP_UUID', app_uuid);",
+											"pm.collectionVariables.set('BLOCKED_REASON', blocked_reason);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Status should be 403\", function () {",
+											"    pm.expect(pm.response.code).to.eql(403);",
+											"});",
+											"",
+											"pm.test(\"Response has message\", ",
+											"function () {",
+											"    pm.expect(jsonData.message).to.not.eql(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"{{EMAIL}}\",\n    \"app_uuid\": \"{{APP_UUID}}\",\n    \"blocked_reason\": \"{{BLOCKED_REASON}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HOST}}/blacklists",
+									"protocol": "http",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"blacklists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create item with bad token",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var uuid = require('uuid');",
+											"var myUUID = uuid.v4();",
+											"",
+											"const app_uuid = myUUID;",
+											"const blocked_reason = \"Some fake reason to add the email to blacklist\";",
+											"",
+											"pm.collectionVariables.set('APP_UUID', app_uuid);",
+											"pm.collectionVariables.set('BLOCKED_REASON', blocked_reason);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Status should be 401\", function () {",
+											"    pm.expect(pm.response.code).to.eql(401);",
+											"});",
+											"",
+											"pm.test(\"Response has message\", ",
+											"function () {",
+											"    pm.expect(jsonData.message).to.not.eql(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}bad",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"{{EMAIL}}\",\n    \"app_uuid\": \"{{APP_UUID}}\",\n    \"blocked_reason\": \"{{BLOCKED_REASON}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HOST}}/blacklists",
+									"protocol": "http",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"blacklists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create item with reason greater than 255",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var uuid = require('uuid');",
+											"var myUUID = uuid.v4();",
+											"",
+											"const app_uuid = myUUID;",
+											"const blocked_reason = \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\";",
+											"",
+											"pm.collectionVariables.set('APP_UUID', app_uuid);",
+											"pm.collectionVariables.set('BLOCKED_REASON', blocked_reason);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Status should be 400\", function () {",
+											"    pm.expect(pm.response.code).to.eql(400);",
+											"});",
+											"pm.test(\"Response has message\", function () {",
+											"    pm.expect(jsonData.message).to.not.eql(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"{{EMAIL}}\",\n    \"app_uuid\": \"{{APP_UUID}}\",\n    \"blocked_reason\": \"{{BLOCKED_REASON}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HOST}}/blacklists",
+									"protocol": "http",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"blacklists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create item with bad uuid",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"",
+											"const app_uuid = \"some bad uuid\";",
+											"const blocked_reason = \"Some fake reason to add the email to blacklist\";",
+											"",
+											"pm.collectionVariables.set('APP_UUID', app_uuid);",
+											"pm.collectionVariables.set('BLOCKED_REASON', blocked_reason);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Status should be 400\", function () {",
+											"    pm.expect(pm.response.code).to.eql(400);",
+											"});",
+											"pm.test(\"Response has message\", function () {",
+											"    pm.expect(jsonData.message).to.not.eql(undefined);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"{{EMAIL}}\",\n    \"app_uuid\": \"{{APP_UUID}}\",\n    \"blocked_reason\": \"{{BLOCKED_REASON}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HOST}}/blacklists",
+									"protocol": "http",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"blacklists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get blacklist element succes",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Status should be 200\", function () {",
+											"    pm.expect(pm.response.code).to.eql(200);",
+											"});",
+											"pm.test(\"Response is true present email\", function () {",
+											"    pm.expect(jsonData.is_email_present).to.be.true;",
+											"});",
+											"pm.test(\"Response is boolean\", function () {",
+											"    pm.expect(jsonData.is_email_present).to.be.a(\"boolean\");",
+											"});",
+											"pm.test(\"Response has reason\", function () {",
+											"    pm.expect(jsonData.reason).to.eql(pm.collectionVariables.get('BLOCKED_REASON'));",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "some_token",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HOST}}/blacklists/{{EMAIL}}",
+									"protocol": "http",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"blacklists",
+										"{{EMAIL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get blacklist element not exists",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Status should be 404\", function () {",
+											"    pm.expect(pm.response.code).to.eql(404);",
+											"});",
+											"pm.test(\"Response has message\", function () {",
+											"    pm.expect(jsonData.is_email_present).to.be.a(\"boolean\");",
+											"});",
+											"pm.test(\"Response has message\", function () {",
+											"    pm.expect(jsonData.is_email_present).to.be.false;",
+											"});",
+											"pm.test(\"Response has message\", function () {",
+											"    pm.expect(jsonData.reason).to.eql(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "some_token",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HOST}}/blacklists/{{EMAIL}}bad",
+									"protocol": "http",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"blacklists",
+										"{{EMAIL}}bad"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get blacklist element without token",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Status should be 403\", function () {",
+											"    pm.expect(pm.response.code).to.eql(403);",
+											"});",
+											"pm.test(\"Response has message\", function () {",
+											"    pm.expect(jsonData.message).to.not.eql(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HOST}}/blacklists/{{EMAIL}}",
+									"protocol": "http",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"blacklists",
+										"{{EMAIL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get blacklist element with invalid token",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"let jsonData = pm.response.json();",
+											"",
+											"pm.test(\"Status should be 401\", function () {",
+											"    pm.expect(pm.response.code).to.eql(401);",
+											"});",
+											"pm.test(\"Response has message\", function () {",
+											"    pm.expect(jsonData.message).to.not.eql(undefined);",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TOKEN}}bad",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HOST}}/blacklists/{{EMAIL}}bad",
+									"protocol": "http",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"blacklists",
+										"{{EMAIL}}bad"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Create Blacklist",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "some_token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"someemail3@gmail.com\",\n    \"app_uuid\": \"286c11f4-d602-46ac-8c73-fba370da0333\",\n    \"blocked_reason\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{HOST}}/blacklists",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"blacklists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get blacklist element",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "some_token",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{HOST}}/blacklists/someemail3@gmail.com",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"blacklists",
+								"someemail3@gmail.com"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "EMAIL",
+			"value": ""
+		},
+		{
+			"key": "APP_UUID",
+			"value": ""
+		},
+		{
+			"key": "BLOCKED_REASON",
+			"value": ""
+		},
+		{
+			"key": "TOKEN",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "GET_EMAIL",
+			"value": ""
+		},
+		{
+			"key": "HOST",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
