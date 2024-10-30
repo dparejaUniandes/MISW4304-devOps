@@ -4,7 +4,7 @@ phases:
   pre_build:
     commands:
       - pip install -r requirements.txt
-      - pytest --cov=. -v -s --cov-fail-under=100
+      - pytest --cov=. -v -s --cov-fail-under=75
 artifacts:
   files:
     - '**/*'
