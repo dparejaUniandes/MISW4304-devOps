@@ -13,6 +13,10 @@ Las pruebas unitarias se pueden ejecutar localmente desde la raíz del proyecto,
 ### Estructura de capeta y archivos
 Desde la raíz del proyecto se puede apreciar la carpeta **tests**, en esta carpeta se incluye el archivo conftest.py que permite la configuración inicial de las pruebas, como la definición de un cliente http y lo que debe ocurrir al finalizar todas las ejecuciones de las pruebas. Por otra parte, como existen dos endpoints, se crean dos archivos de pruebas, uno para agregar un email a la lista negra y otro para obtener el email. Todas las pruebas se ejecutan correctamente y tienen un coverage superior al 90%. En la raíz del proyecto también se incluye el archivo **.coveragerc** que permite omitir los archivos de tests que no deben ser tenidos en cuenta para el coverage. Por último, en el archivo de compilación **buildspec.yml** se incluye el comando antes mencionado para la ejecución de los tests unitarios cuando se realice la compilación en CodeBuild de AWS.
 
+**Coverage** <br>
+<img width="975" alt="image" src="https://github.com/user-attachments/assets/5f78c8ac-4669-438f-b2c5-68a486d8c078">
+
+
 # Entrega 1
 
 La aplicación ha sido desarrollado en python y Flask, para su ejecución, recomendamos configurar y activar un ambiente virtual de python, luego instalar las dependencias con el comando `pip install --no-cache-dir -r requirements.txt`. Vale la pena mencionar que existe un archivo Dockerfile en la raíz del proyecto, este carga la configuración y hace uso de variables de entorno para la conexión a la base de datos postgresql que está localmente, si no se desea ejecutar la aplicación con Docker, desde la raíz del proyecto bastaría ejecutar `python application.py`, de esta menera se tomaría por defecto SQLite y la aplicación funcionaría sin problemas. Cabe aclarar que en AWS Beanstalk no se ejecutó la aplicación contenerizada, en su lugar, se cargó un archivo comprimido para ejecutar la aplicación, el archivo comprimido se encuentra en la raíz del proyecto con el nombre **Archivador.zip**
