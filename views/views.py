@@ -61,3 +61,7 @@ class BlacklistView(Resource):
         if not blacklist:
             return {"is_email_present": False}, 404
         return {"is_email_present": True, "reason": blacklist.blocked_reason}, 200
+    
+class PingView(Resource):
+    def get(self):
+        return 200

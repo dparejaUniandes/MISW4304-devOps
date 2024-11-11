@@ -25,6 +25,7 @@ def create_flask_app():
 def endpoints(app):
     api = Api(app)
     api.add_resource(BlacklistsView, '/blacklists') 
+    api.add_resource(PingView, '/ping') 
     api.add_resource(BlacklistView, '/blacklists/<string:email>') 
 
 
