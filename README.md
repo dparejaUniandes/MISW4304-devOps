@@ -13,6 +13,10 @@ Las pruebas unitarias se pueden ejecutar localmente desde la raíz del proyecto,
 ### Estructura de capeta y archivos
 Desde la raíz del proyecto se puede apreciar la carpeta **tests**, en esta carpeta se incluye el archivo conftest.py que permite la configuración inicial de las pruebas, como la definición de un cliente http y lo que debe ocurrir al finalizar todas las ejecuciones de las pruebas. Por otra parte, como existen dos endpoints, se crean dos archivos de pruebas, uno para agregar un email a la lista negra y otro para obtener el email. Todas las pruebas se ejecutan correctamente y tienen un coverage superior al 90%. En la raíz del proyecto también se incluye el archivo **.coveragerc** que permite omitir los archivos de tests que no deben ser tenidos en cuenta para el coverage. Por último, en el archivo de compilación **buildspec.yml** se incluye el comando antes mencionado para la ejecución de los tests unitarios cuando se realice la compilación en CodeBuild de AWS.
 
+**Coverage** <br>
+<img width="975" alt="image" src="https://github.com/user-attachments/assets/5f78c8ac-4669-438f-b2c5-68a486d8c078">
+
+
 # Entrega 1
 
 La aplicación ha sido desarrollado en python y Flask, para su ejecución, recomendamos configurar y activar un ambiente virtual de python, luego instalar las dependencias con el comando `pip install --no-cache-dir -r requirements.txt`. Vale la pena mencionar que existe un archivo Dockerfile en la raíz del proyecto, este carga la configuración y hace uso de variables de entorno para la conexión a la base de datos postgresql que está localmente, si no se desea ejecutar la aplicación con Docker, desde la raíz del proyecto bastaría ejecutar `python application.py`, de esta menera se tomaría por defecto SQLite y la aplicación funcionaría sin problemas. Cabe aclarar que en AWS Beanstalk no se ejecutó la aplicación contenerizada, en su lugar, se cargó un archivo comprimido para ejecutar la aplicación, el archivo comprimido se encuentra en la raíz del proyecto con el nombre **Archivador.zip**
@@ -147,9 +151,9 @@ En la raíz del proyecto existe el archivo `Ciclo_7_DevOps.postman_collection.js
 <br>
 
 ### Variables de la colección en postman
-Para la correcta ejecución de los escenarios de prueba en postman, se han definido las variables EMAIL, APP_UUID, BLOCKED_REASON, TOKEN, GET_EMAIL, la variable HOST es la URL base para realizar las peticiones, en local se puede reemplazar por `http://localhost:5000`, en este momento se encuentra configurado con el dominio de AWS Beanstalk en donde se ejecutó la aplicación: `proyecto-entrega-1-env.eba-pzar3z2n.us-east-1.elasticbeanstalk.com`
+Para la correcta ejecución de los escenarios de prueba en postman, se han definido las variables EMAIL, APP_UUID, BLOCKED_REASON, TOKEN, GET_EMAIL, la variable HOST es la URL base para realizar las peticiones, en local se puede reemplazar por `http://localhost:5000`, en este momento se encuentra configurado con el dominio de AWS Beanstalk en donde se ejecutó la aplicación: `proyecto-entrega-1-env-1.eba-pzar3z2n.us-east-1.elasticbeanstalk.com/`
 
-<img width="1044" alt="image" src="https://github.com/user-attachments/assets/1d512eaa-d19d-4ec2-aff8-72ca260ddca3">
+<img width="1044" alt="image" src="https://github.com/user-attachments/assets/a84c4772-2a26-4656-886d-08f367bb8d0a">
 
 ### Ejecución de los tests de postman
 Para la ejecución de los tests en postman, se deben realizar los siguientes pasos:
