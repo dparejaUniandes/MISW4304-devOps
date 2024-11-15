@@ -10,7 +10,7 @@
           }
         ],
 
-        "image": "<IMAGE1_NAME>",
+        "image": "448049786285.dkr.ecr.us-east-1.amazonaws.com/python_app:latest",
         "essential": true,
         "name": "Container-app-python"
       }
