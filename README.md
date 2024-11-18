@@ -2,18 +2,27 @@
 Ciclo 7 de la maestría en ingeniería de software asignatura DevOps
 
 # Entrega 3 - Entrega continua
-En esta entrega se hace uso de varios servicios de AWS, como Fargate, ECS, ECR, CodeDeploy, CodeBuild, definición de tareas con el fin de realizar entrega continua con despliegue Blue/Green.
+En esta entrega se hace uso de varios servicios de AWS, como Fargate, ECS, ECR, CodeDeploy, CodeBuild, Load Balancer y definición de tareas, con el fin de realizar entrega continua con despliegue Blue/Green.
 
 La nueva url para acceder a los servicios de blacklist es:
 * `LB-app-python-1206019677.us-east-1.elb.amazonaws.com`
 
 ## Archivos de configuración
-* **buildspec.yml**: contiene las estapas de pre_build para la instalación de dependencias y ejecución de tests unitarios, la etapa de build permite la creación de la imagen de docker y la etapa de post_build crea los artefactos para poder leer la imagen desde S3.
+* **buildspec.yml**: contiene las estapas de `pre_build` para la instalación de dependencias y ejecución de tests unitarios, la etapa de build permite la creación de la imagen de docker y la etapa de `post_build` crea los artefactos para poder leer la imagen desde S3.
 * **appspec.json**: como su nombre lo indica, contiene la configuración que especifica la aplicación, el puerto del contenedor, el nombre del contendor y la definición de tarea asociada.
-* **taskdef.json**: contiene la configuración para la definición de tarea, como el mapeo de puertos, el role de ecs para la ejecución de la tarea y capacidad de recursos, como memoria y CPU.
+* **taskdef.json**: contiene la configuración para la definición de tarea, como el mapeo de puertos, el role de ECS para la ejecución de la tarea y capacidad de recursos, como memoria y CPU.
+
+## Variables de entorno:
+
+Se configuraron variables de entorno para que la aplicación pudierá realizar la conexión con la base de datos en la definición de la tarea del contenedor con los siguientes nombres:
+ * `DB_USER`
+ * `DB_PASSWORD`
+ * `DB_HOST`
+ * `DB_PORT`
+ * `DB_NAME`
 
 ## Creación del endpoint ping
-Para los chequeos de salud de la aplicación se adiciona el enpoint ping. A continuación, se adjunta captura de pantalla del endpoint el cual solo retorna el mensaje 200 y el código http 200
+Para los chequeos de salud de la aplicación en el Load Balancer, se adiciona el enpoint `ping`. A continuación, se adjunta captura de pantalla del endpoint el cual solo retorna el mensaje `200` y el código HTTP `200`
 <br>
 <img width="1316" alt="image" src="https://github.com/user-attachments/assets/e4d2132f-8bcc-4d28-8dd1-0502ec13ff59">
 <br>
