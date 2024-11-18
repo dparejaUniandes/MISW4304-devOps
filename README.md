@@ -1,6 +1,23 @@
 # MISW4304-devOps
 Ciclo 7 de la maestría en ingeniería de software asignatura DevOps
 
+# Entrega 3 - Entrega continua
+En esta entrega se hace uso de varios servicios de AWS, como Fargate, ECS, ECR, CodeDeploy, CodeBuild, definición de tareas con el fin de realizar entrega continua con despliegue Blue/Green.
+
+La nueva url para acceder a los servicios de blacklist es:
+[url servicios blacklist](LB-app-python-1206019677.us-east-1.elb.amazonaws.com)
+
+## Archivos de configuración
+* **buildspec.yml**: contiene las estapas de pre_build para la instalación de dependencias y ejecución de tests unitarios, la etapa de build permite la creación de la imagen de docker y la etapa de post_build crea los artefactos para poder leer la imagen desde S3.
+* **appspec.json**: como su nombre lo indica, contiene la configuración que especifica la aplicación, el puerto del contenedor, el nombre del contendor y la definición de tarea asociada.
+* **taskdef.json**: contiene la configuración para la definición de tarea, como el mapeo de puertos, el role de ecs para la ejecución de la tarea y capacidad de recursos, como memoria y CPU.
+
+## Creación del endpoint ping
+Para los chequeos de salud de la aplicación se adiciona el enpoint ping. A continuación, se adjunta captura de pantalla del endpoint el cual solo retorna el mensaje 200 y el código http 200
+<br>
+<img width="1316" alt="image" src="https://github.com/user-attachments/assets/e4d2132f-8bcc-4d28-8dd1-0502ec13ff59">
+<br>
+
 # Entrega 2 - Integración continua con CodeBuild, CodePipeline y Beanstalk
 
 Las consideraciones que se tuvieron en cuenta para la entrega 1 siguen estando vigente, sin embargo, es importante mencionar el proceso que se ha llevado a cabo para la realización de la pruebas unitarias
