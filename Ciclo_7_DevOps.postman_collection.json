@@ -769,7 +769,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"someemail3@gmail.com\",\n    \"app_uuid\": \"286c11f4-d602-46ac-8c73-fba370da0333\",\n    \"blocked_reason\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\"\n}",
+							"raw": "{\n    \"email\": \"someemail5@gmail.com\",\n    \"app_uuid\": \"286c11f4-d602-46ac-8c73-fba370da0337\",\n    \"blocked_reason\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -805,14 +805,75 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://{{HOST}}/blacklists/someemail3@gmail.com",
+							"raw": "http://{{HOST}}/blacklists/someem@gmail.com",
 							"protocol": "http",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
 								"blacklists",
-								"someemail3@gmail.com"
+								"someem@gmail.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ping",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{HOST}}/ping",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"ping"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tutoriales",
+			"item": [
+				{
+					"name": "get all heroes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one heroe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"5"
 							]
 						}
 					},
