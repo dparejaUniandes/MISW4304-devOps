@@ -5,7 +5,7 @@ Ciclo 7 de la maestría en ingeniería de software asignatura DevOps
 En esta entrega se hace uso de varios servicios de AWS, como Fargate, ECS, ECR, CodeDeploy, CodeBuild, definición de tareas con el fin de realizar entrega continua con despliegue Blue/Green.
 
 La nueva url para acceder a los servicios de blacklist es:
-[url servicios blacklist](LB-app-python-1206019677.us-east-1.elb.amazonaws.com)
+* `LB-app-python-1206019677.us-east-1.elb.amazonaws.com`
 
 ## Archivos de configuración
 * **buildspec.yml**: contiene las estapas de pre_build para la instalación de dependencias y ejecución de tests unitarios, la etapa de build permite la creación de la imagen de docker y la etapa de post_build crea los artefactos para poder leer la imagen desde S3.
