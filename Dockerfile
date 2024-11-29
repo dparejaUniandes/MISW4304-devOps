@@ -10,6 +10,12 @@ RUN pip install newrelic
 # ENV DB_PORT=5432
 # ENV DB_NAME=postgres
 
+ENV DB_USER=postgres
+ENV DB_PASSWORD=M15W4304!12
+ENV DB_HOST=awseb-e-yzidm9dyh2-stack-awsebrdsdatabase-oarrjntgll5l.czyg0y2wk2e6.us-east-1.rds.amazonaws.com
+ENV DB_PORT=5432
+ENV DB_NAME=ebdb
+
 ENV NEW_RELIC_APP_NAME="devops-entrega-4"
 ENV NEW_RELIC_LOG=stdout
 ENV NEW_RELIC_DISTRIBUTED_TRACING_ENABLED=true
