@@ -1,6 +1,20 @@
 # MISW4304-devOps
 Ciclo 7 de la maestría en ingeniería de software asignatura DevOps
 
+# Entrega 4 - Monitoreo continuo
+
+Las siguientes variables de entorno se configuran en el Dockerfile que se encuentra en la raíz de la aplicación con el fin de recibir métricas de desempeño, logs, cantidad de solicitudes y el resto de capacidades que se proveen desde New Relic.
+* **NEW_RELIC_APP_NAME** el valor que se le pone a esta variable es devops-entrega-4
+* **NEW_RELIC_LOG** se configura la salida stdout
+* **NEW_RELIC_DISTRIBUTED_TRACING_ENABLED** es para habilitar las trazas distribuidas, lo tenemos con el valor true
+* **NEW_RELIC_LOG_LEVEL** se establece el valor info para generar registros de log
+
+Para instalar la dependencia de Newrelic, se especifica la siguiente instrucción:
+* `RUN pip install newrelic`
+
+Es necesario especificar el siguiente ENTRYPOINT para ejecutar la aplicación con los argumentos de newrelic
+* ENTRYPOINT [ "newrelic-admin", "run-program" ]
+
 # Entrega 3 - Entrega continua
 En esta entrega se hace uso de varios servicios de AWS, como Fargate, ECS, ECR, CodeDeploy, CodeBuild, Load Balancer y definición de tareas, con el fin de realizar entrega continua con despliegue Blue/Green.
 
