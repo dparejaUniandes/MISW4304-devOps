@@ -3,6 +3,8 @@ WORKDIR /app
 COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install newrelic
+
+# La siguiente configuración está pensada para ejecutar en local
 # ENV DB_URL=postgresql://postgres:postgres@host.docker.internal:5432/postgres
 # ENV DB_USER=postgres
 # ENV DB_PASSWORD=postgres
